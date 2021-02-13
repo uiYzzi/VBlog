@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="page-header" :style="'background-image: linear-gradient(120deg, '+backgroundColorLeft+', '+backgroundColorRight+');color: '+fontColor+';'">
+        <section class="page-header" :style="'background-image:url(https://tva4.sinaimg.cn/large/9bd9b167gy1g2qkjn1gkhj21hc0u04ns.jpg)'">
             <div style="position:absolute; top:20px; right:20px; z-index:2;">
                 <el-tooltip effect="dark" :content="fullButton.full?'退出':'全屏'" placement="bottom-end">
                     <el-button @click="full" :icon="fullButton.full?'el-icon-close':'el-icon-rank'" circle></el-button>
@@ -108,6 +108,7 @@
     import Sidebar from './components/Sidebar'
     import AppMain from './components/AppMain'
     import Foot from './components/Foot'
+    
     export default {
         components: {
             Sidebar,
@@ -262,7 +263,30 @@
 </script>
 
 <style>
+/* 滚动条 */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cca191;
+    background-image: -webkit-linear-gradient( 45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #cca191;
+}
     .page-header {
+        height: 100vh;
+        background-attachment: fixed;
         padding: 5rem 6rem;
         color: #fff;
         text-align: center;
@@ -271,14 +295,16 @@
     }
 
     .project-name {
-        font-size: 3.25rem;
-        margin-top: 0;
-        margin-bottom: 0.1rem;
+    height: 50%; 
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;        
+    font-size: 3.25rem;
     }
 
     .project-tagline {
         font-size: 1.25rem;
-        margin-bottom: 2rem;
         font-weight: normal;
         opacity: 0.7;
     }
